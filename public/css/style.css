@@ -1,0 +1,489 @@
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.navbar{
+    background-color: #166fe5;
+}
+body{
+    /* background-image: linear-gradient(to right, #c9fbff , #a0c7fc); */
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    text-align: left;
+}
+
+.rounded-app{
+    border-radius: 30px;
+}
+
+#flash-message{
+    position: fixed;
+    top: 50px;
+    right: 40%;
+    z-index: 10;
+}
+.nounderline {
+    text-decoration: none !important;
+  }
+.edit-sched{
+    color: white;
+    padding:  6px;
+    background-color: #299d53;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px;
+    border-style: none;
+    font-size: 12px;
+    margin-top: 12px;
+    
+}
+.btn-margin{
+    padding: 0 !important;
+    width: 70px;
+}
+.delete-sched{
+    color: white;
+    padding:  6px 7px;
+    background-color: #b53232;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px;
+    border-style: none;
+    font-size: 12px;
+}
+.statusbutton-add , .softstatusbutton-add , .statusbutton-update{
+    color: white;
+    padding: 3px 8px;
+    background-color: #007eac;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px;
+    border-style: none;
+}
+.statusbutton-edit , .softstatusbutton-edit{
+    color: white;
+    padding: 3px 8px;
+    background-color: #299d53;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px;
+    border-style: none;
+}
+.statusbutton-save , .softstatusbutton-save{
+    color: white;
+    padding: 3px 8px;
+    background-color: #299d53;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px;
+    border-style: none;
+}
+.btn-start-preventive{
+    color: black;
+    padding: 3px 8px;
+    background-color: #3ec75e;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px;
+    border-style: none;
+}
+.btn-save-preventive{
+    color: black;
+    padding: 3px 8px;
+    background-color: #007eac;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px;
+    border-style: none;
+}
+.statusbutton-close1, 
+.statusbutton-close2, 
+.statusbutton-close3, 
+.statusbutton-close4, 
+.update-statusbutton-close1,
+.update-statusbutton-close2,
+.update-statusbutton-close3,
+.update-statusbutton-close4,
+.software-update-statusbutton-close1,
+.software-update-statusbutton-close2,
+.software-update-statusbutton-close3,
+.software-update-statusbutton-close4,
+#reload,
+#reload-software,
+#edit-reload,
+#edit-reload-software
+{
+    color: white;
+    padding: 3px 5px;
+    background-color: #b53232;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px;
+    border-style: none;
+}
+.softstatusbutton-close1,
+.softstatusbutton-close2,
+.softstatusbutton-close3,
+.softstatusbutton-close4{
+    color: white;
+    padding: 3px 8px;
+    background-color: #b53232;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 3px;
+    border-style: none;
+}
+
+
+/* Animate Background*/
+/* @keyframes Gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  } */
+
+
+/* Tables */
+.post-table > tbody > tr > td, .post-table > tbody > tr > th, .post-table > tfoot > tr > td, .post-table > tfoot > tr > th, .post-table > thead > tr > td, .post-table > thead > tr > th {
+    border: 1px solid rgb(48, 146, 250);
+}
+.summary-table > tbody > tr > td, .summary-table > tbody > tr > th, .summary-table > tfoot > tr > td, .summary-table > tfoot > tr > th, .summary-table > thead > tr > td, .summary-table > thead > tr > th {
+    border: 1px solid rgb(72, 72, 72);
+}
+/* Preventive Maintenance Guest */
+.pm-title{
+    font-size: 40px !important;
+}
+/* Preventive Maintenance Summary */
+/* #deptitle th{
+    width: 6vw;
+    font-size: 12px;
+} */
+
+
+
+#checkedDate td{
+    line-height:9px;
+    font-size: 9px;
+    padding: 2px 0 2px 0 !important;
+    text-align: center;
+}
+#pcName{
+    padding-bottom: 20px;
+    font-size: 13px;
+}
+#monthquarters th{
+    text-align: center;
+    font-size: 14px;
+}
+#monthquarters #quarterstatus{
+    font-size: 11px;
+}
+#deptitle{
+    font-size: 13px;
+}
+#deptitle th{
+    width: 6vw;
+    font-size: 12px;
+}
+
+#deptitle, #eachuser #useinc, #hardwareworkstation{
+    text-align: center;
+}
+#useinc{
+    width: 21px;
+    font-size: 11px;
+    padding: 12px 0 12px 0 !important;
+}
+#eachuser{
+    font-size: 12px;
+}
+#maintenanceactivities{
+    padding: 15px 0 15px 0;
+    margin-top: 30px;
+}
+#maintenanceactivities ul{
+    list-style-type:none;
+    line-height:18px;
+}
+#hidden span{
+    color: white;
+}
+
+.drop-bottom{
+    margin-bottom: 390px;
+}
+
+/* Department error validation */
+.border-error{
+    width: 100%;
+    height: 28px;
+    border-radius: 4px;
+    margin-bottom: -25px;
+    position: relative;
+    top: -50px;
+    pointer-events: none;
+}
+
+/* Preventive Maintenance Workstation */
+
+#userpcinfo th{
+    width: 6vw;
+    font-size: 12px;
+}
+#userpcinfo td{
+    font-size: 12px;
+    width: 18vw;
+}
+#checkedStatus td{
+    padding: 8;
+    line-height:13px;
+    text-align: center;
+    width: 5vw;
+    height: 30px;
+    font-size: 12px;
+}
+.noted{
+    text-align: left !important;
+    font-size: 11px !important;
+}
+#description, #brandtype{  /* pcName exist in preventive summary */
+    padding-bottom: 28px;
+    font-size: 14px;
+}
+#eachitem th{
+    font-size: 12px;
+    width: 5vw;
+}
+
+#eachitem #itemtype{
+    font-size: 12px;
+    width: 5vw;
+}
+
+#checkdate{
+    font-size: 11px;
+    text-align: center;
+}
+/* Status */
+ #eachitem td:not(#itemtype){  /* Working */
+    text-align: center;
+    font-size: 10px;
+    /* color: #28a745; */
+}
+
+/* #defective{
+    color: #dc3545 !important;   /* Defective *
+}
+#forcondemn{
+    color: #ffc107 !important;   /* Forcondemn *
+} */
+
+.statuscheck{
+    color: #3c8f28;
+    font-size: 14px;
+}
+.statusdef{
+    color: #bf1f1f;
+    font-size: 14px;
+}
+#remarks{
+    line-height:18px;
+    margin-top: 30px;
+    padding: 0;
+    border: 1px solid rgb(48, 146, 250);
+}
+#remarks .card-header{
+    padding: 4px !important;
+    border-bottom: 1px solid rgb(48, 146, 250);
+}
+#statuslabel{
+    font-size: 12px;
+    margin-top: 8px;
+}
+.modal-content{
+    border-radius: 12px !important;
+}
+.modal-header{
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+}
+
+
+/* Footer */
+.site-footer
+  {
+    background-color:#26272b;
+    padding:12px 0 5px;
+    font-size:15px;
+    line-height:20px;
+    color:#737373;
+    position: relative;
+    bottom: 0;
+  }
+  hr {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+  }
+  .site-footer hr
+  {
+  border-top-color:#bbb;
+  opacity:0.5
+  }
+  .site-footer hr.small
+  {
+  margin:20px 0
+  }
+  .site-footer h6
+  {
+  color:#fff;
+  font-size:16px;
+  text-transform:uppercase;
+  margin-top:5px;
+  letter-spacing:2px
+  }
+  .site-footer a
+  {
+  color:#737373;
+  }
+  .site-footer a:hover
+  {
+  color:#3366cc;
+  text-decoration:none;
+  }
+  .footer-links
+  {
+  padding-left:0;
+  list-style:none
+  }
+  .footer-links li
+  {
+  display:block
+  }
+  .footer-links a
+  {
+  color:#737373
+  }
+  .footer-links a:active,.footer-links a:focus,.footer-links a:hover
+  {
+  color:#3366cc;
+  text-decoration:none;
+  }
+  .footer-links.inline li
+  {
+  display:inline-block
+  }
+  .site-footer .social-icons
+  {
+  text-align:right
+  }
+  .site-footer .social-icons a
+  {
+  width:40px;
+  height:40px;
+  line-height:40px;
+  margin-left:6px;
+  margin-right:0;
+  border-radius:100%;
+  background-color:#33353d
+  }
+  .copyright-text
+  {
+  margin:0
+  }
+  @media (max-width:991px)
+  {
+  /* .site-footer [class^=col-]
+  {
+      margin-bottom:10px
+  } */
+  }
+  @media (max-width:767px)
+  {
+  .site-footer
+  {
+      padding-bottom:0;
+  }
+  .site-footer .copyright-text,.site-footer .social-icons
+  {
+      text-align:center
+  }
+  }
+  .social-icons
+  {
+  padding-left:0;
+  margin-bottom:0;
+  list-style:none
+  }
+  .social-icons li
+  {
+  display:inline-block;
+  }
+  .social-icons li.title
+  {
+  margin-right:15px;
+  text-transform:uppercase;
+  color:#96a2b2;
+  font-weight:700;
+  font-size:13px
+  }
+  .social-icons a{
+  background-color:#eceeef;
+  color:#818a91;
+  font-size:16px;
+  display:inline-block;
+  line-height:44px;
+  width:44px;
+  height:44px;
+  text-align:center;
+  margin-right:8px;
+  border-radius:100%;
+  -webkit-transition:all .2s linear;
+  -o-transition:all .2s linear;
+  transition:all .2s linear
+  }
+  .social-icons a:active,.social-icons a:focus,.social-icons a:hover
+  {
+  color:#fff;
+  background-color:#29aafe
+  }
+  .social-icons.size-sm a
+  {
+  line-height:34px;
+  height:34px;
+  width:34px;
+  font-size:14px
+  }
+  .social-icons a.facebook:hover
+  {
+  background-color:#3b5998
+  }
+  .social-icons a.twitter:hover
+  {
+  background-color:#00aced
+  }
+  .social-icons a.linkedin:hover
+  {
+  background-color:#007bb6
+  }
+  .social-icons a.dribbble:hover
+  {
+  background-color:#ea4c89
+  }
+  @media (max-width:767px)
+  {
+    .social-icons li.title
+    {
+        display:block;
+        margin-right:0;
+        font-weight:600
+    }
+  }
+
+.statuses {
+    font-size: 12px;
+}
