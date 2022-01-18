@@ -174,7 +174,7 @@
                                             <div class="col-lg-3 col-md-6 mb-4">
                                                 <div class="sizes rounded shadow-lg backg7">
                                                     <label class="text"><i class="fas fa-print"></i> Printer</label><br>
-                                                    <div class="text-center" style="font-size: 2rem; font-weight: bold;font-family: 'Trebuchet MS';">{{$posts->where('printer', !null)->count()}}</div>
+                                                    <div class="text-center" style="font-size: 2rem; font-weight: bold;font-family: 'Trebuchet MS';">{{$posts->whereNotIn('printer', array('N/A', null))->count()}}</div>
                                                 </div>
                                             </div>
                     
@@ -182,7 +182,7 @@
                                             <div class="col-lg-3 col-md-6 mb-4">
                                                 <div class="sizes rounded shadow-lg backg8">
                                                     <label class="text"><i class="fas fa-hospital-symbol"></i> Laptop</label><br>
-                                                <div class="text-center" style="font-size: 2rem; font-weight: bold;font-family: 'Trebuchet MS';">{{$posts->whereNotIn('printer', array('N/A', null))->count()}}</div>
+                                                <div class="text-center" style="font-size: 2rem; font-weight: bold;font-family: 'Trebuchet MS';">{{$posts->where('cpu', '<=', 'LAPTOP')->count()}}</div>
                                                 </div>
                                             </div>
                     
