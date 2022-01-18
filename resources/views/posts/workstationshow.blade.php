@@ -277,7 +277,28 @@
             <th colspan="4">Monitor</th>
                 @if($computer->posts->monitor == '')
                     <td colspan="4" id="itemtype">
-                        <input type="text" id="edit-monitor-input" class="edit-input-post d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." >
+                        {{-- <input type="text" id="edit-monitor-input" class="edit-input-post d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." > --}}
+                        <input type="text" id="edit-monitor-input" class="edit-input-post d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." value="{{ old('monitor') ?? $computer->posts->monitor }}" list="edit-monitor_na">
+                            <datalist id="edit-monitor_na">
+                                <option value="N/A">
+                            </datalist>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                @elseif($computer->posts->monitor == 'N/A')
+
+                    <td colspan="4" id="itemtype">
+                        <span class="post-input">{{ $computer->posts->monitor }}</span>
+                        <input type="text" id="edit-monitor-input" class="edit-input-post d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." value="{{ old('monitor') ?? $computer->posts->monitor }}" list="edit-monitor_na">
+                            <datalist id="edit-monitor_na">
+                                <option value="N/A">
+                            </datalist>
                     </td>
                     <td></td>
                     <td></td>
@@ -292,7 +313,11 @@
 
                     <td colspan="4" id="itemtype">
                         <span class="post-input">{{ $computer->posts->monitor }}</span>
-                        <input type="text" id="edit-monitor-input" class="edit-input-post d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." value="{{ old('monitor') ?? $computer->posts->monitor }}">
+                        {{-- <input type="text" id="edit-monitor-input" class="edit-input-post d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." value="{{ old('monitor') ?? $computer->posts->monitor }}"> --}}
+                        <input type="text" id="edit-monitor-input" class="edit-input-post d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." list="add-monitor_na">
+                            <datalist id="add-monitor_na">
+                                <option value="N/A">
+                            </datalist>
                     </td>
 
                     {{-- Status --}}
@@ -669,10 +694,10 @@
 
           {{-- CPU --}}
           <tr>
-            <th colspan="4">CPU</th>
+            <th colspan="4">CPU / LAPTOP</th>
                 @if($computer->posts->cpu == '')
                     <td colspan="4" id="itemtype">
-                        <input type="text" id="edit-cpu-input" class="edit-input-post d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." >
+                        <input type="text" id="edit-cpu-input" class="edit-input-post d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." style="text-transform: uppercase">
                     </td>
                     <td></td>
                     <td></td>
@@ -687,7 +712,7 @@
 
                     <td colspan="4" id="itemtype">
                         <span class="post-input">{{ $computer->posts->cpu }}</span>
-                        <input type="text" id="edit-cpu-input" class="edit-input-post d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." value="{{ old('cpu') ?? $computer->posts->cpu }}">
+                        <input type="text" id="edit-cpu-input" class="edit-input-post d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." value="{{ old('cpu') ?? $computer->posts->cpu }}" style="text-transform: uppercase">
                     </td>
 
                     {{-- Status --}}
@@ -2676,7 +2701,7 @@
             {{-- 1st Status  button save/close --}}
             <td colspan="2">
                 @if($computer->posts)
-                    @if(empty($computer->firststatus->cpu_stats) || empty($computer->firststatus->monitor_stats))
+                    @if(empty($computer->firststatus->cpu_stats) && empty($computer->firststatus->monitor_stats))
                         @if($computer->posts->os)
                             <button onclick="alert('Please check the Hardware first, before you proceed to this section')" class="softstatusbutton-add alert-add"><i class="fas fa-plus"></i> Add</button>
                         @endif
@@ -2770,4 +2795,3 @@
         @include('posts.edit_post_preventive_form')
         @include('posts.post_form')
         @include('posts.edit_form')                     
- 
