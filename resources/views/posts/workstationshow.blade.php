@@ -1043,7 +1043,7 @@
                         <button type="button" id="savestatusbutton2" class="d-none statusbutton-close2 closereload float-right"><i class="fas fa-times"></i></button>
                     @endif
                 @endif
-            </td> {{-- <input id="status2-ok" class="d-none 2ndcheckbox" type="checkbox"  /> --}}
+            </td>
             
             {{-- 3rd Status button save/close --}}
             <td colspan="2">
@@ -1284,7 +1284,6 @@
         <th colspan="4">OPERATING SYSTEM</th>
             @if(empty($computer->posts->os))
                 <td colspan="4" id="itemtype">
-                    {{-- <input type="text" id="os-input" class="edit-input-post-software d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..."> --}}
                     <select id="edit-os-input" class="edit-input-post-software d-none rounded border border-secondary pl-1 w-100" >
                         <option disabled selected hidden>Select OS</option>
                         <option value="WINDOWS XP">WINDOWS XP</option>
@@ -1298,7 +1297,6 @@
             @else
                 <td colspan="4" id="itemtype">
                     <span class="edit-post-input">{{ $computer->posts->os }}</span>
-                    {{-- <input type="text" id="edit-os-input" class="edit-input-post-software d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." value="{{ old('os') ?? $computer->posts->sysboot }}"> --}}
                     <select id="edit-os-input" class="edit-input-post-software d-none rounded border border-secondary pl-1 w-100" >
                         <option disabled selected hidden>Select OS</option>
                         <option value="WINDOWS XP" {{$computer->posts->os == "WINDOWS XP" ? 'selected' : ''}}>WINDOWS XP</option>
@@ -1575,26 +1573,14 @@
         <th colspan="4">MICROSOFT OFFICE</th>
             @if($computer->posts->ms_office == '')
                 <td colspan="4" id="itemtype">
-                    {{-- <input type="text" id="ms_office-input" class="edit-input-post-software d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." > --}}
-                    
-                        {{-- <select id="ms_office-input" class="msofficeselect2 rounded border border-secondary pl-1" multiple="multiple" style="width: 100%;" name="bizboxselect">
-                            <option></option>
-                            <option value=" 2007">2007</option>
-                            <option value=" 2013">2013</option>
-                            <option value=" 2016">2016</option>
-                            <option value=" 2019">2019</option>
-                        </select>
-                        <input type="hidden" name="ms_office" id="getmsoffice"> --}}
-
                         <select id="edit-ms_office-input" class="edit-input-post-software d-none rounded border border-secondary pl-1 w-100" >
                             <option disabled selected hidden>Select Version</option>
                             <option value="2007">2007</option>
+                            <option value="2010">2010</option>
                             <option value="2013">2013</option>
                             <option value="2016">2016</option>
                             <option value="2019">2019</option>
                         </select>
-                        
-                    
                 </td>
                 <td></td>
                 <td></td>
@@ -1609,10 +1595,10 @@
 
                 <td colspan="4" id="itemtype">
                     <span class="edit-post-input">{{ $computer->posts->ms_office }}</span>
-                    {{-- <input type="text" id="edit-ms_office-input" class="edit-input-post-software d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." value="{{ old('ms_office') ?? $computer->posts->ms_office }}"> --}}
                     <select id="edit-ms_office-input" class="edit-input-post-software d-none rounded border border-secondary pl-1 w-100" >
                         <option disabled selected hidden>Select Version</option>
                         <option value="2007" {{$computer->posts->ms_office == "2007" ? 'selected' : ''}}>2007</option>
+                        <option value="2010" {{$computer->posts->ms_office == "2010" ? 'selected' : ''}}>2010</option>
                         <option value="2013" {{$computer->posts->ms_office == "2013" ? 'selected' : ''}}>2013</option>
                         <option value="2016" {{$computer->posts->ms_office == "2016" ? 'selected' : ''}}>2016</option>
                         <option value="2019" {{$computer->posts->ms_office == "2019" ? 'selected' : ''}}>2019</option>
@@ -1736,7 +1722,6 @@
         <th colspan="4">BIZBOX HIS</th>
             @if($computer->posts->his == '')
                 <td colspan="4" id="itemtype">
-                    {{-- <input type="text" id="his-input" class="edit-input-post-software d-none rounded border border-secondary pl-1 w-100" placeholder="Aa..." > --}}
                     <select id="edit-his-input" name="his" class="edit-input-post-software d-none rounded border border-secondary pl-1 w-100">
                         <option disabled selected hidden>HIS</option>
                         <option value="OK">OK</option>
@@ -2686,13 +2671,11 @@
         <th colspan="4"></th>
         <td colspan="4">
         
-            {{-- @if(!$computer->posts->cpu || !$computer->posts->monitor) --}}
             @if(!$computer->posts || !$computer->posts->cpu || !$computer->posts->monitor || !$computer->posts->os)
                 <button type="button" id="edit-preventive-software" class="btn-start-preventive bg-warning"><i class="fas fa-pencil-alt"></i> Add Preventive</button>
                 <button type="submit" id="edit-save-preventive-software" class="d-none btn-save-preventive button-disable-post" form="edit_computer_preventive_software">Save <i class="spinner fa fa-spinner fa-spin float-right mt-1 ml-1"></i></button>
                 <button type="button" id="edit-reload-software" class="closereload d-none float-right"><i class="fas fa-undo-alt"></i></button>
             @else
-                {{-- <button type="button" id="edit-preventive" class="btn-start-preventive">Edit</button> --}}
                 <button type="button" id="edit-preventive-software" class="btn-start-preventive bg-warning"><i class="fas fa-pencil-alt"></i> Edit</button>
                 <button type="submit" id="edit-save-preventive-software" class="d-none btn-save-preventive button-disable-post" form="edit_computer_preventive_software">Save <i class="spinner fa fa-spinner fa-spin float-right mt-1 ml-1"></i></button>
                 <button type="button" id="edit-reload-software" class="closereload d-none float-right"><i class="fas fa-undo-alt"></i></button>
@@ -2703,7 +2686,7 @@
                 @if($computer->posts)
                     @if(empty($computer->firststatus->cpu_stats) && empty($computer->firststatus->monitor_stats))
                         @if($computer->posts->os)
-                            <button onclick="alert('Please check the Hardware first, before you proceed to this section')" class="softstatusbutton-add alert-add"><i class="fas fa-plus"></i> Add</button>
+                            <button onclick="alert('Please preventive the Hardware first, before you proceed to this section')" class="softstatusbutton-add alert-add"><i class="fas fa-plus"></i> Add</button>
                         @endif
                     @else  
                         @if (empty($computer->firststatus->os_stats))
@@ -2723,7 +2706,7 @@
                 @if($computer->posts)
                     @if(empty($computer->secondstatus->cpu_stats) && empty($computer->secondstatus->monitor_stats))
                         @if($computer->posts->os)
-                            <button onclick="alert('Please check the Hardware first, before you proceed to this section')" class="softstatusbutton-add alert-add"><i class="fas fa-plus"></i> Add</button>
+                            <button onclick="alert('Please preventive the Hardware first, before you proceed to this section')" class="softstatusbutton-add alert-add"><i class="fas fa-plus"></i> Add</button>
                         @endif
                     @else 
 
@@ -2745,7 +2728,7 @@
                 @if($computer->posts)
                     @if(empty($computer->thirdstatus->cpu_stats) && empty($computer->thirdstatus->monitor_stats))
                         @if($computer->posts->os)
-                            <button onclick="alert('Please check the Hardware first, before you proceed to this section')" class="softstatusbutton-add alert-add"><i class="fas fa-plus"></i> Add</button>
+                            <button onclick="alert('Please preventive the Hardware first, before you proceed to this section')" class="softstatusbutton-add alert-add"><i class="fas fa-plus"></i> Add</button>
                         @endif
                     @else 
 
@@ -2767,7 +2750,7 @@
                 @if($computer->posts)
                     @if(empty($computer->forthstatus->cpu_stats) && empty($computer->forthstatus->monitor_stats))
                         @if($computer->posts->os)
-                            <button onclick="alert('Please check the Hardware first, before you proceed to this section')" class="softstatusbutton-add alert-add"><i class="fas fa-plus"></i> Add</button>
+                            <button onclick="alert('Please preventive the Hardware first, before you proceed to this section')" class="softstatusbutton-add alert-add"><i class="fas fa-plus"></i> Add</button>
                         @endif
                     @else 
 
