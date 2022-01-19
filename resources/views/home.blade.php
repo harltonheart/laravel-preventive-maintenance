@@ -22,10 +22,12 @@
     <!-- Styles and bootstrap -->
     @include('layouts.csslinks')
     
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"> --}}
     <link href="{{ asset('css/bootstrap-icons.css') }}" rel="stylesheet">
 
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" /> --}}
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
     
@@ -181,12 +183,10 @@
                     
                                             <div class="col-lg-3 col-md-6 mb-4">
                                                 <div class="sizes rounded shadow-lg backg8">
-                                                    <label class="text"><i class="fas fa-hospital-symbol"></i> Laptop</label><br>
-                                                <div class="text-center" style="font-size: 2rem; font-weight: bold;font-family: 'Trebuchet MS';">{{$posts->where('cpu', '<=', 'LAPTOP')->count()}}</div>
+                                                    <label class="text"><i class="fas fa-laptop"></i> Laptop</label><br>
+                                                    <div class="text-center" style="font-size: 2rem; font-weight: bold;font-family: 'Trebuchet MS';">{{DB::table('posts')->select(DB::raw('count(*) as count'))->where('cpu', 'like', "%LAPTOP%")->first()->count;}}</div>
                                                 </div>
                                             </div>
-                    
-                    
                                         </div>
                     
                                     </div>
@@ -244,4 +244,3 @@
 </body>
 
 </html>
-
