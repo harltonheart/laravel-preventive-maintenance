@@ -11,7 +11,9 @@
         <div class="my-5">
 
             <div class="col-8">
-                    <button type="button" class="btn btn-primary btn-sm float-right mb-3" data-toggle="modal" data-target="#addschedepartment" title="Add New">Add Department Schedule</button>
+                    @if(Auth::user()->username !== 'guest')
+                        <button type="button" class="btn btn-primary btn-sm float-right mb-3" data-toggle="modal" data-target="#addschedepartment" title="Add New">Add Department Schedule</button>
+                    @endif
                 <h4>Month of  {{$monthly->month}}-{{$monthly->year}}</h4>
             </div>
             @if (!$monthly->weekly()->count())
@@ -46,7 +48,7 @@
                         <td>P</td>
                         <td>A</td>
                         <td>D</td>
-                        <td></td>
+                        @if(Auth::user()->username !== 'guest')<td></td>@endif
                     </tr>
                 </thead>
                 <tbody>
@@ -56,10 +58,12 @@
                                 <td class="text-center">{{$week->partial}}</td>
                                 <td class="text-center">{{$week->done}}</td>
                                 <td class="text-center">{{$week->actual}}</td>
+                                @if(Auth::user()->username !== 'guest')
                                 <td class="p-0 text-center btn-margin">
                                     <button type="button" class="edit-sched" data-toggle="modal" data-target="#editSchedule-{{$week->id}}" title="Add Status"><i class="fas fa-pencil-alt"></i></button>
                                     <button type="button" class="delete-sched" data-toggle="modal" data-target="#deleteSchedule-{{$week->id}}" title="Delete"><i class="fas fa-trash-alt"></i></button>
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                 </tbody>
@@ -75,7 +79,7 @@
                         <td>P</td>
                         <td>A</td>
                         <td>D</td>
-                        <td></td>
+                        @if(Auth::user()->username !== 'guest')<td></td>@endif
                     </tr>
                 </thead>
                 <tbody>
@@ -85,10 +89,12 @@
                                 <td class="text-center">{{$week->partial}}</td>
                                 <td class="text-center">{{$week->done}}</td>
                                 <td class="text-center">{{$week->actual}}</td>
+                                @if(Auth::user()->username !== 'guest')
                                 <td class="p-0 text-center btn-margin">
                                     <button type="button" class="edit-sched" data-toggle="modal" data-target="#editSchedule-{{$week->id}}" title="Add Status"><i class="fas fa-pencil-alt"></i></button>
-                                    <button type="button" class="delete-sched" data-toggle="modal" data-target="#deleteSchedule-{{$week->id}}" title="Delete"><i class="fas fa-trash-alt"></i></button>
+                                    <button type="button" class="delete-sched" data-toggle="modal" data-target="#deleteSchedule-{{$week->id}}" title="Delete"><i class="fas fa-trash-alt"></i></button>    
                                 </td>
+                                @endif
                             </tr>
                         @endforeach
                     
@@ -105,7 +111,7 @@
                         <td>P</td>
                         <td>A</td>
                         <td>D</td>
-                        <td></td>
+                        @if(Auth::user()->username !== 'guest')<td></td>@endif
                     </tr>
                 </thead>
                 <tbody>
@@ -115,10 +121,12 @@
                             <td>{{$week->partial}}</td>
                             <td>{{$week->done}}</td>
                             <td>{{$week->actual}}</td>
+                            @if(Auth::user()->username !== 'guest')
                             <td class="p-0 text-center btn-margin">
                                 <button type="button" class="edit-sched" data-toggle="modal" data-target="#editSchedule-{{$week->id}}" title="Add Status"><i class="fas fa-pencil-alt"></i></button>
                                 <button type="button" class="delete-sched" data-toggle="modal" data-target="#deleteSchedule-{{$week->id}}" title="Delete"><i class="fas fa-trash-alt"></i></button>
                             </td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>
@@ -134,7 +142,7 @@
                         <td>P</td>
                         <td>A</td>
                         <td>D</td>
-                        <td></td>
+                        @if(Auth::user()->username !== 'guest')<td></td>@endif
                     </tr>
                 </thead>
                 <tbody>
@@ -144,10 +152,12 @@
                         <td>{{$week->partial}}</td>
                         <td>{{$week->done}}</td>
                         <td>{{$week->actual}}</td>
+                        @if(Auth::user()->username !== 'guest')
                         <td class="p-0 text-center btn-margin">
                             <button type="button" class="edit-sched" data-toggle="modal" data-target="#editSchedule-{{$week->id}}" title="Add Status"><i class="fas fa-pencil-alt"></i></button>
                             <button type="button" class="delete-sched" data-toggle="modal" data-target="#deleteSchedule-{{$week->id}}" title="Delete"><i class="fas fa-trash-alt"></i></button>
                         </td>
+                        @endif
                     </tr>
                 @endforeach
                 </tbody>
@@ -234,6 +244,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Weeks</label>
                             <div class="col-sm-10">
+                                {{-- <input type="text" class="ml-3" name="department_name" value="{{ old('department_name') ?? $week->department_name }}"/> --}}
                                 <select name="weekly" class="col-sm-6 p-0 ml-3" style="width: 182px;" autofocus>
                                     <option value="1week" {{$week->weekly == '1week' ? 'selected' : ''}}>1st week</option>
                                     <option value="2week" {{$week->weekly == '2week' ? 'selected' : ''}}>2nd week</option>
@@ -303,6 +314,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Weeks</label>
                             <div class="col-sm-10">
+                                {{-- <input type="text" class="ml-3" name="department_name" value="{{ old('department_name') ?? $week->department_name }}"/> --}}
                                 <select name="weekly" class="col-sm-6 p-0 ml-3" style="width: 182px;" autofocus>
                                     <option value="1week" {{$week->weekly == '1week' ? 'selected' : ''}}>1st week</option>
                                     <option value="2week" {{$week->weekly == '2week' ? 'selected' : ''}}>2nd week</option>
@@ -374,6 +386,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Weeks</label>
                             <div class="col-sm-10">
+                                {{-- <input type="text" class="ml-3" name="department_name" value="{{ old('department_name') ?? $week->department_name }}"/> --}}
                                 <select name="weekly" class="col-sm-6 p-0 ml-3" style="width: 182px;" autofocus>
                                     <option value="1week" {{$week->weekly == '1week' ? 'selected' : ''}}>1st week</option>
                                     <option value="2week" {{$week->weekly == '2week' ? 'selected' : ''}}>2nd week</option>
@@ -445,6 +458,7 @@
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Weeks</label>
                             <div class="col-sm-10">
+                                {{-- <input type="text" class="ml-3" name="department_name" value="{{ old('department_name') ?? $week->department_name }}"/> --}}
                                 <select name="weekly" class="col-sm-6 p-0 ml-3" style="width: 182px;" autofocus>
                                     <option value="1week" {{$week->weekly == '1week' ? 'selected' : ''}}>1st week</option>
                                     <option value="2week" {{$week->weekly == '2week' ? 'selected' : ''}}>2nd week</option>
