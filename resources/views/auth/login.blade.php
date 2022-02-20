@@ -79,7 +79,7 @@
             <div class="col-md-6 col-lg-4 col-sm-8 m-auto py-3 color-bg">
 
                 <img src="{{ asset('img/sottologo-png.png') }}" class="rounded mx-auto d-block mt-2" width="120px" height="110px">
-                <center class="text-dark mt-2"><h5>Preventive Maintenance</h5></center>
+                <center class="text-dark mt-2"><h4>Preventive Maintenance</h4></center>
 
             
                 <form class="form-signin mt-5 px-3 form-prevent" method="POST" action="{{ route('login') }}">
@@ -117,7 +117,7 @@
                 
                 </form>
 
-
+                <small class="ml-3"><a class="text-dark float-right mr-4" href="/register">Sign up</a></small>
             </div>
             
         </div>
