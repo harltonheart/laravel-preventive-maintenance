@@ -6,8 +6,10 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+     <meta http-equiv="refresh" content="900">{{-- 15mins --}}
 
     <title>PREVENTIVE MAINTENANCE</title>
+    <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}" />
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -28,16 +30,12 @@
 </head>
     <style>
         .wrapper{
-            /* background-color: rgba(51, 209, 175, 0.816); */
-            /* background-color: #6d7fcc; */
-            /* background-color: #7386D5; */
             position: relative;
-            /* background-image: url('/public/img/IT.jpg'); */
             background-repeat:no-repeat;
             background-size:100% 100vh;
         }
         .cont{
-            margin-top: 1.5%;
+            margin-top: 2%;
         }
         .color-bg{
             background-color: rgba(255, 255, 255, 0.2);
@@ -61,7 +59,7 @@
     </style>
 <body class="d-flex flex-column min-vh-100" style="overflow: hidden">
     <div class="wrapper flex-grow-1" style="background-image: url('{{asset('css/IT.jpg')}}');">
-        <form class="form-signin px-3 mt-4 float-right form-prevent-default" method="POST" action="{{ route('login') }}">
+        <form class="form-signin px-3 mt-4 form-prevent-default" method="POST" action="{{ route('login') }}">
             @csrf
         
             {{-- username --}}
@@ -71,14 +69,14 @@
             {{-- password --}} 
             <input  type="hidden" name="password" value="guest123">
 
-        
-            <button type="submit" class="text-light btn btn-info btn-prevent-default">
-                Default Login <i class="spinner-default fa fa-spinner fa-spin float-right mt-1 ml-1"></i>
-            </button>
-        
+            <center>
+                    <button type="submit" class="text-light btn btn-info btn-prevent-default">
+                         Default Login <i class="spinner-default fa fa-spinner fa-spin float-right mt-1 ml-1"></i>
+                    </button>
+            </center>
         </form>
         <div class="container cont">
-            <div class="col-4 col-md-6 col-lg-4 col-sm-8 m-auto py-3 color-bg">
+            <div class="col-md-6 col-lg-4 col-sm-8 m-auto py-3 color-bg">
 
                 <img src="{{ asset('img/sottologo-png.png') }}" class="rounded mx-auto d-block mt-2" width="120px" height="110px">
                 <center class="text-dark mt-2"><h5>Preventive Maintenance</h5></center>
@@ -113,7 +111,7 @@
                         
                     </div>
                 
-                    <button type="submit" class="btn btn-sm btn-primary btn-block mt-5 mb-2 btn-sign btn-prevent text-nowrap">
+                    <button type="submit" class="btn btn-sm btn-info btn-block mt-5 mb-2 btn-sign btn-prevent text-nowrap">
                         Sign in <i class="spinner fa fa-spinner fa-spin float-right mt-1"></i>
                     </button>
                 
@@ -133,7 +131,7 @@
     <!-- Bootstrap JS -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
-    <script>
+    <script type="text/javascript">
         (function(){
             $('.form-prevent-default').on('submit', function(){
                 $('.btn-prevent-default').attr('disabled', 'true');
@@ -145,9 +143,18 @@
                 $('.spinner').show();
             })
         })();
+
+        var csrfToken = $('[name="csrf_token"]').attr('content');
+
+        setInterval(refreshToken, 1800000); // 30mins 
+
+        function refreshToken(){
+            $.get('refresh-csrf').done(function(data){
+                csrfToken = data; // the new token
+            });
+        }
+
+        setInterval(refreshToken, 1800000); // 30 mins
     </script>
 </body>
 </html>
-
-
-
